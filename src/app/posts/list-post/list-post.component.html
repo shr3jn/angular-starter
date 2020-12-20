@@ -1,0 +1,30 @@
+<div class="card mt-4">
+  <h4 class="card-header">Posts</h4>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-12">
+        <button class="btn btn-success" [routerLink]="['/posts/create']">Create New</button>
+      </div>
+    </div>
+
+    <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+    <div *ngIf="success" class="alert alert-success mt-3 mb-0">{{success}}</div>
+
+    <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
+    <table *ngIf="data" class="table table-bordered table-striped" style="margin-top: 16px;">
+      <thead>
+      <tr>
+        <td>Post Name</td>
+        <td>Action</td>
+      </tr>
+      </thead>
+      <tr *ngFor="let post of data">
+        <td>{{ post.name }}</td>
+        <td>
+          <i-bs name="pencil-fill" class="icon-link" routerLink="/posts/update/{{post.id}}"></i-bs>
+          <i-bs name="trash-fill" class="icon-link" (click)="onDelete(post.id)">Delete</i-bs>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

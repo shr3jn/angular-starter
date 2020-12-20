@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  apiUrl: 'http://localhost/skeleton/public/index.php/api'
 };
